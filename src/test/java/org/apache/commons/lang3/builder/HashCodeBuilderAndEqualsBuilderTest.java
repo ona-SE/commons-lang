@@ -139,7 +139,7 @@ class HashCodeBuilderAndEqualsBuilderTest extends AbstractLangTest {
         // The following should not retain memory.
         for (int i = 0; i < Integer.getInteger("testRecursive", 10_000); i++) {
             final Class<?> clazz = TestClassBuilder.defineSimpleClass(getClass().getPackage().getName(), i);
-            assertEqualsAndHashCodeContract(clazz.newInstance(), clazz.newInstance(), false);
+            assertEqualsAndHashCodeContract(clazz.getDeclaredConstructor().newInstance(), clazz.getDeclaredConstructor().newInstance(), false);
         }
     }
 

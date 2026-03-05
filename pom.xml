@@ -33,12 +33,12 @@
   Apache Commons Lang is a package of Java utility classes for the Java lang packages,
   classes that could be considered standard to justify their existence in java.lang.
 
-  The code is tested using the latest revision of the JDK for supported LTS releases: 8, 11, 17, 21, and 25.
+  The code is tested using the latest revision of the JDK for supported LTS releases: 17, 21, and 25.
   See https://github.com/apache/commons-lang/blob/master/.github/workflows/maven.yml
 
   Please ensure your build environment is up-to-date and kindly report any build issues.
 
-  Starting with Commons Lang 3.9, we target Java 8 and use those features.
+  Starting with Commons Lang 3.21, we target Java 17 and use those features.
 
   For advice on upgrading from 2.x to 3.x, see https://commons.apache.org/lang/article3_0.html
 
@@ -79,8 +79,9 @@
     </dependency>
     <dependency>
       <groupId>org.mockito</groupId>
-      <artifactId>mockito-inline</artifactId>
+      <artifactId>mockito-core</artifactId>
       <version>${commons.mockito.version}</version>
+      <scope>test</scope>
     </dependency>
     <!-- For Javadoc links -->
     <dependency>
@@ -123,8 +124,8 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <!-- project.build.outputTimestamp is managed by Maven plugins, see https://maven.apache.org/guides/mini/guide-reproducible-builds.html -->
     <project.build.outputTimestamp>2025-11-16T12:58:18Z</project.build.outputTimestamp>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
     <!--
        This is also  used to generate download_xxx file name.
        To override this when generating the download page:
@@ -142,7 +143,7 @@
     <!-- Current 3.x release series -->
     <commons.release.version>3.21.0</commons.release.version>
     <commons.release.next>3.21.1</commons.release.next>
-    <commons.release.desc>(Java 8+)</commons.release.desc>
+    <commons.release.desc>(Java 17+)</commons.release.desc>
     <!-- Previous 2.x release series -->
     <commons.release.2.version>2.6</commons.release.2.version>
     <commons.release.2.desc>(Requires Java 1.2 or later)</commons.release.2.desc>
@@ -172,6 +173,7 @@
     <!-- GH CI Java 17 Ubuntu says 0.91 -->
     <!-- Local macOS Java 21 says 0.92 -->
     <commons.jacoco.complexityRatio>0.91</commons.jacoco.complexityRatio>
+    <commons.mockito.version>5.14.2</commons.mockito.version>
     <commons.text.version>1.15.0</commons.text.version>
     <commons.io.version>2.21.0</commons.io.version>
   </properties>

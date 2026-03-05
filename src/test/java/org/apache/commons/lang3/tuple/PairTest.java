@@ -237,8 +237,8 @@ class PairTest extends AbstractLangTest {
 
     @ParameterizedTest()
     @MethodSource("org.apache.commons.lang3.tuple.PairTest#mapClassFactory")
-    public <K, V> void testMapEntries(final Class<Map<Integer, String>> clazz) throws InstantiationException, IllegalAccessException {
-        testMapEntry(clazz.newInstance());
+    public <K, V> void testMapEntries(final Class<Map<Integer, String>> clazz) throws Exception {
+        testMapEntry(clazz.getDeclaredConstructor().newInstance());
     }
 
     public <K, V> void testMapEntries(final Map<Integer, String> map) {
