@@ -91,7 +91,7 @@ class AppendableJoinerTest {
     @ValueSource(classes = { StringBuilder.class, StringBuffer.class, StringWriter.class, StrBuilder.class, TextStringBuilder.class })
     void testDelimiterAppendable(final Class<? extends Appendable> clazz) throws Exception {
         final AppendableJoiner<Object> joiner = AppendableJoiner.builder().setDelimiter(".").get();
-        final Appendable sbuilder = clazz.newInstance();
+        final Appendable sbuilder = clazz.getDeclaredConstructor().newInstance();
         sbuilder.append("A");
         // throws IOException
         assertEquals("AB.C", joiner.joinA(sbuilder, "B", "C").toString());

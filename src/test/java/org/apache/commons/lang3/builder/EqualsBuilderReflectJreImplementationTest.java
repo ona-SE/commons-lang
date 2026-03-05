@@ -287,7 +287,7 @@ class EqualsBuilderReflectJreImplementationTest extends AbstractLangTest {
         // The following should not retain memory.
         for (int i = 0; i < Integer.getInteger("testRetention", 10_000); i++) {
             final Class<?> clazz = TestClassBuilder.defineSimpleClass(getClass().getPackage().getName(), i);
-            assertTrue(new EqualsBuilder().setTestRecursive(true).append(clazz.newInstance(), clazz.newInstance()).isEquals());
+            assertTrue(new EqualsBuilder().setTestRecursive(true).append(clazz.getDeclaredConstructor().newInstance(), clazz.getDeclaredConstructor().newInstance()).isEquals());
         }
         // some retention is checked in super's after().
     }

@@ -526,8 +526,8 @@ class ReflectionDiffBuilderTest extends AbstractLangTest {
         // The following should not retain memory.
         for (int i = 0; i < Integer.getInteger("testRecursive", 10_000); i++) {
             final Class<?> clazz = TestClassBuilder.defineSimpleClass(getClass().getPackage().getName(), i);
-            final Object firstObject = clazz.newInstance();
-            final Object secondObject = clazz.newInstance();
+            final Object firstObject = clazz.getDeclaredConstructor().newInstance();
+            final Object secondObject = clazz.getDeclaredConstructor().newInstance();
             final ReflectionDiffBuilder<Object> reflectionDiffBuilder = new ReflectionDiffBuilder<>(firstObject, secondObject, SHORT_STYLE);
             assertNotNull(reflectionDiffBuilder.build());
         }
